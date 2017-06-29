@@ -1,9 +1,5 @@
 import React, {Component} from 'react'
+import HBox from './HBox'
+import VBox from './VBox'
 
-export default class extends Component {
-  render() {
-    return <div>
-      <h2>Welcome to React components</h2>
-    </div>
-  }
-}
+export {HBox, VBox}
