@@ -8,6 +8,31 @@ import PopupContainer from "../../src/PopupContainer";
 import PopupManager from "../../src/PopupManager";
 import Spacer from "../../src/Spacer";
 
+class ColorPanel extends Component {
+    render() {
+        return <div style={{
+        backgroundColor:this.props.item,
+        width:'50px'
+        }}>{this.props.item}</div>
+    }
+}
+class GridListView extends Component {
+    static defaultProps = {
+        width: '100px'
+    }
+    render() {
+        var items = this.props.list.map((it,i)=>{
+            var Temp = this.props.template;
+            return <div key={i}><Temp item={it}/></div>
+        });
+        return <div style={{
+        display:"flex",
+        flexDirection:'row',
+        flexWrap:"wrap",
+        width:this.props.width
+        }}>{items}</div>;
+    }
+}
 
 class Demo extends Component {
     constructor(props) {
@@ -26,6 +51,11 @@ class Demo extends Component {
             <button onClick={this.hidePopup}>option 2</button></div>;
         PopupManager.show(options,this.refs.popupTrigger);
     }
+    openColorPicker() {
+        var colors = ["red",'green','blue'];
+        var grid = <GridListView template={ColorPanel} list={colors}/>
+        PopupManager.show(grid, this.refs.colorTrigger);
+    }
     render() {
         return <div>
             <VBox fill={true}>
@@ -39,6 +69,7 @@ class Demo extends Component {
                     <VBox>
                         <button onClick={this.openDialog}>open a dialog</button>
                         <button ref='popupTrigger' onClick={this.openPopup.bind(this)}>open popup</button>
+                        <button ref='colorTrigger' onClick={this.openColorPicker.bind(this)}>open colors</button>
                     </VBox>
                 </HBox>
             </VBox>
