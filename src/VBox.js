@@ -19,6 +19,9 @@ export default class VBox extends Component {
         if(this.props.grow === true) {
             style.flex = '1';
         }
+        if(this.props.scroll === true) {
+            style.overflow = 'auto';
+        }
         return <div style={style}>{this.props.children}</div>
     }
 }
