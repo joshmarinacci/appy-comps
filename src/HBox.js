@@ -9,6 +9,16 @@ export default class HBox extends Component {
             display:'flex',
             flexDirection:'row'
         };
+        if(this.props.fill === true) {
+            style.position = 'absolute';
+            style.top = 0;
+            style.bottom = 0;
+            style.left = 0;
+            style.right = 0;
+        }
+        if(this.props.grow === true) {
+            style.flex = '1';
+        }
         return <div style={style}>{this.props.children}</div>
     }
 }
