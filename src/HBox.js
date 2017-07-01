@@ -22,6 +22,8 @@ export default class HBox extends Component {
         if(this.props.scroll === true) {
             style.overflow = 'auto';
         }
-        return <div style={style}>{this.props.children}</div>
+        var id = "";
+        if(this.props.id) id = this.props.id;
+        return <div style={style}  id={id}>{this.props.children}</div>
     }
 }
