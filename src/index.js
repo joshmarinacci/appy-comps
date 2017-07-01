@@ -1,8 +1,14 @@
 import React, {Component} from 'react'
 import HBox from './HBox'
 import VBox from './VBox'
+import Dialog from "./Dialog";
+import PopupContainer from "./PopupContainer";
+import PopupManager from "./PopupManager";
+import Spacer from "./Spacer";
 
-export {HBox, VBox}
+export {HBox, VBox, Dialog, PopupContainer, PopupManager, Spacer}
+
+
 
 /*
 
