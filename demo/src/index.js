@@ -77,7 +77,7 @@ class Demo extends Component {
                     <VBox>
                         <div>header</div>
                         <VBox grow={true} className="list">
-                            the contents of the list box
+                            the contents of the list box foo
                         </VBox>
                     </VBox>
                     <VBox>

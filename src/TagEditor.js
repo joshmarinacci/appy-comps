@@ -6,25 +6,29 @@ const tagEditorStyle = {
     padding: '0.25em',
     position:'relative',
     display:'flex',
-    flexDirection:'row'
+    flexDirection:'row',
+    fontSize:'100%'
 };
 const tagStyle = {
     flex:0,
-    border:'1px solid red',
+    border:'1px solid lightGreen',
     borderRadius:'0.5em',
-    padding:'0.5em',
-    margin:'0.25em 0.25em',
-    backgroundColor:'red'
+    padding:'0.25em 0.5em',
+    margin:'0.20em 0.20em',
+    backgroundColor:'lightGreen'
 };
 const removeStyle = {
-    border:'1px solid red',
+    border:'1px solid lightGreen',
+    color:'gray',
     marginLeft:'0.5em',
     borderRadius:'1em',
-    padding: '0.25em 0.5em'
+    padding: '0.25em 0em',
+    fontFamily:'sans-serif',
+    fontSize:'90%'
 };
 const inputWrapperStyle = {
     flex:1,
-    border: '1px solid blue',
+    border: '1px solid gray',
     display:'flex',
     flexDirection:'row',
     position:'relative'
