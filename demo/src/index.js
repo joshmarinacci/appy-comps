@@ -7,6 +7,7 @@ import Dialog from "../../src/Dialog";
 import PopupContainer from "../../src/PopupContainer";
 import PopupManager from "../../src/PopupManager";
 import Spacer from "../../src/Spacer";
+import TagEditor from "../../src/TagEditor";
 
 class ColorPanel extends Component {
     render() {
@@ -38,12 +39,25 @@ class Demo extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            dialogVisible:false
+            dialogVisible:false,
+            tags:['foo','bar']
         };
 
         this.hidePopup = () => PopupManager.hide();
         this.openDialog = () => this.setState({dialogVisible:true});
         this.closeDialog = () => this.setState({dialogVisible:false});
+
+
+        var possible = [
+            'foo','bar','baz','quxx','far out','bear'
+        ];
+        this.searchTag = (str, cb)=>{
+            cb(possible.filter((t)=>t.indexOf(str)===0));
+        };
+        this.tagsEdited = (tags) => {
+            this.setState({tags:tags})
+        }
+
     }
     openPopup() {
         var options = <div>
@@ -70,6 +84,13 @@ class Demo extends Component {
                         <button onClick={this.openDialog}>open a dialog</button>
                         <button ref='popupTrigger' onClick={this.openPopup.bind(this)}>open popup</button>
                         <button ref='colorTrigger' onClick={this.openColorPicker.bind(this)}>open colors</button>
+                    </VBox>
+                    <VBox>
+                        <TagEditor
+                            tags={this.state.tags}
+                            search={this.searchTag}
+                            onChange={this.tagsEdited}
+                        />
                     </VBox>
                 </HBox>
             </VBox>

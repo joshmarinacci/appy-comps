@@ -5,8 +5,11 @@ import Dialog from "./Dialog";
 import PopupContainer from "./PopupContainer";
 import PopupManager from "./PopupManager";
 import Spacer from "./Spacer";
+import TagEditor from "./TagEditor";
 
-export {HBox, VBox, Dialog, PopupContainer, PopupManager, Spacer}
+export {HBox, VBox, Dialog, PopupContainer, PopupManager, Spacer, TagEditor}
+
+
 
 
 
