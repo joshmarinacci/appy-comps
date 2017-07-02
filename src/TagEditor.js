@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import PopupManager from "./PopupManager";
 
 
 const tagEditorStyle = {
@@ -37,15 +38,10 @@ const inputStyle = {
     borderWidth:0,
     flex:1,
     fontSize:'100%'
-}
+};
 const resultsStyle = {
     border:'1px solid red',
-    position:'absolute',
-    left:0,
-    top:'3em',
     backgroundColor:'white',
-    maxHeight:'100px',
-    overflow:'scroll'
 };
 
 const resultsItemStyle = {
@@ -92,7 +88,9 @@ export default class TagEditor extends Component {
             this.setState({ newTag:prefix});
             if(this.props.search) {
                 this.props.search(prefix,(res)=>{
-                    this.setState({searchResults:res})
+                    this.setState({searchResults:res});
+                    var resout = this.renderSearchResults(res);
+                    PopupManager.show(resout,this.refs.input);
                 })
             }
         };
@@ -105,6 +103,7 @@ export default class TagEditor extends Component {
     selectResult(res) {
         this.setState({newTag:'',searchResults:[]});
         this.props.onChange(this.props.tags.concat(res));
+        PopupManager.hide();
     }
     render() {
         return <div style={tagEditorStyle}>
@@ -115,15 +114,16 @@ export default class TagEditor extends Component {
                        onChange={this.edited}
                        onKeyDown={this.complete}
                 />
-                {this.renderSearchResults(this.state.searchResults)}
             </div>
         </div>
     }
+
     renderSearchResults(res) {
         if(res.length <= 0) return <div></div>
-        return <div className="results" style={resultsStyle}>
+        return <div style={resultsStyle}>
             {res.map((r,i)=>{
-                return <div key={i} className="item" style={resultsItemStyle} onClick={this.selectResult.bind(this,r)}>{r}</div>
+                return <div key={i} style={resultsItemStyle}
+                            onClick={this.selectResult.bind(this,r)}>{r}</div>
             })}
         </div>
     }
