@@ -4,7 +4,7 @@
 import React, {Component} from 'react'
 
 export default class HBox extends Component {
-    render() {
+    generateStyle() {
         const style = {
             display:'flex',
             flexDirection:'row'
@@ -22,8 +22,20 @@ export default class HBox extends Component {
         if(this.props.scroll === true) {
             style.overflow = 'auto';
         }
+        var fstyle = {};
+        if(this.props.style) {
+            fstyle = Object.assign(fstyle, this.props.style, style);
+        } else {
+            fstyle = Object.assign(fstyle, style);
+        }
+        return fstyle;
+    }
+    render() {
+        var fstyle = this.generateStyle();
+        var cls = "";
+        if(this.props.className)  cls = this.props.className;
         var id = "";
         if(this.props.id) id = this.props.id;
-        return <div style={style}  id={id}>{this.props.children}</div>
+        return <div style={fstyle}  id={id} className={cls}>{this.props.children}</div>
     }
 }

@@ -9,6 +9,8 @@ import PopupManager from "../../src/PopupManager";
 import Spacer from "../../src/Spacer";
 import TagEditor from "../../src/TagEditor";
 
+import "./test.css";
+
 class ColorPanel extends Component {
     render() {
         return <div style={{
@@ -72,12 +74,12 @@ class Demo extends Component {
     }
     render() {
         return <div>
-            <VBox fill={true}>
-                <HBox grow={true}>
+            <VBox fill>
+                <HBox grow>
                     <VBox>
                         <div>header</div>
-                        <VBox grow={true} className="list">
-                            the contents of the list box foo
+                        <VBox grow className="list">
+                            the contents of the list box foo.<br/> it should have a red background
                         </VBox>
                     </VBox>
                     <VBox>
@@ -92,6 +94,9 @@ class Demo extends Component {
                             onChange={this.tagsEdited}
                         />
                     </VBox>
+                </HBox>
+                <HBox grow style={{backgroundColor:'green'}}>
+                    anotehr hbox. it should be green;
                 </HBox>
             </VBox>
 
