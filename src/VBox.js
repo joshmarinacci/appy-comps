@@ -7,6 +7,7 @@ import HBox from "./HBox"
 export default class VBox extends HBox {
     render() {
         var fstyle = this.generateStyle();
+        fstyle.flexDirection = 'column';
         var cls = "";
         if(this.props.className)  cls = this.props.className;
         var id = "";
