@@ -4,38 +4,28 @@
 import React, {Component} from 'react'
 
 export default class HBox extends Component {
-    generateStyle() {
-        const style = {
-            display:'flex',
-            flexDirection:'row'
-        };
-        if(this.props.fill === true) {
-            style.position = 'absolute';
-            style.top = 0;
-            style.bottom = 0;
-            style.left = 0;
-            style.right = 0;
-        }
-        if(this.props.grow === true) {
-            style.flex = '1';
-        }
-        if(this.props.scroll === true) {
-            style.overflow = 'auto';
-        }
-        var fstyle = {};
-        if(this.props.style) {
-            fstyle = Object.assign(fstyle, this.props.style, style);
-        } else {
-            fstyle = Object.assign(fstyle, style);
-        }
-        return fstyle;
+    constructor(props) {
+        super(props);
+        this._direction = 'row';
     }
     render() {
-        var fstyle = this.generateStyle();
-        var cls = "";
-        if(this.props.className)  cls = this.props.className;
-        var id = "";
-        if(this.props.id) id = this.props.id;
-        return <div style={fstyle}  id={id} className={cls}>{this.props.children}</div>
+        const {style, fill, grow, scroll, ...rest} = this.props;
+
+        let style2 = {
+            display:'flex',
+            flexDirection:this._direction
+        };
+        if(grow === true)   style2.flex = '1';
+        if(scroll === true) style2.overflow = 'auto';
+        if(fill === true) {
+            style2.position = 'absolute';
+            style2.top = 0;
+            style2.bottom = 0;
+            style2.left = 0;
+            style2.right = 0;
+        }
+        var fstyle = Object.assign({}, style, style2);
+        console.log("final style is ", fstyle);
+        return <div style={fstyle} {...rest}>{this.props.children}</div>
     }
 }

@@ -95,7 +95,7 @@ class Demo extends Component {
                         />
                     </VBox>
                 </HBox>
-                <HBox grow style={{backgroundColor:'green'}}>
+                <HBox grow style={{backgroundColor:'green'}} onClick={()=> console.log("clicked")}>
                     anotehr hbox. it should be green;
                 </HBox>
             </VBox>
