@@ -1,3 +1,36 @@
+body {
+    font-family: sans-serif;
+    font-size: 12pt;
+}
 .list {
     background-color: red;
+}
+
+.menu-item {
+    background-color: white;
+    border: 1px solid darkgray;
+    color: darkgray;
+    padding: 0.25em 0.5em;
+    border-top-width: 0;
+    border-left-width: 0;
+    border-right-width: 0;
+}
+.menu-item:hover {
+    background-color: lightblue;
+    color: white;
+}
+.menu-item.selected {
+    background-color: black;
+    border-color: black;
+    color:white;
+}
+
+.list-item {
+    border: 1px solid gray;
+    border-width: 0 0 1px 0;
+    background-color: #fff;
+    padding: 0.25em 0.25em;
+}
+.list-item.selected {
+    background-color: #ddd;
 }

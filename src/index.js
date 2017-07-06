@@ -6,8 +6,12 @@ import PopupContainer from "./PopupContainer";
 import PopupManager from "./PopupManager";
 import Spacer from "./Spacer";
 import TagEditor from "./TagEditor";
+import PopupMenu from "./PopupMenu";
+import VToggleGroup from "./VToggleGroup";
+import HToggleGroup from "./HToggleGroup";
+import ListSelect from "./ListSelect";
 
-export {HBox, VBox, Dialog, PopupContainer, PopupManager, Spacer, TagEditor}
+export {HBox, VBox, Dialog, PopupContainer, PopupManager, Spacer, TagEditor, PopupMenu, VToggleGroup, HToggleGroup, ListSelect}
 
 
 
