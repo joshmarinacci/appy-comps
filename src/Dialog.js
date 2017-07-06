@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 
-export default class Dialog extends React.Component {
+export default class Dialog extends Component {
     render() {
         const scrimStyle = {
             position: 'fixed',
@@ -24,7 +24,7 @@ export default class Dialog extends React.Component {
             boxShadow: '0px 4px 15px 5px rgba(0,0,0,0.23)'
         };
 
-        if(!this.props.visible) return <div></div>;
+        if(!this.props.visible) return <div/>;
         return <div style={scrimStyle}>
             <div style={dialogStyle}>{this.props.children}</div>
         </div>

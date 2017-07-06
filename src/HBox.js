@@ -25,7 +25,6 @@ export default class HBox extends Component {
             style2.right = 0;
         }
         var fstyle = Object.assign({}, style, style2);
-        console.log("final style is ", fstyle);
         return <div style={fstyle} {...rest}>{this.props.children}</div>
     }
 }
