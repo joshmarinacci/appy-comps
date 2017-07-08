@@ -10,8 +10,10 @@ import PopupMenu from "./PopupMenu";
 import VToggleGroup from "./VToggleGroup";
 import HToggleGroup from "./HToggleGroup";
 import ListSelect from "./ListSelect";
+import DialogManager from "./DialogManager";
+import DialogContainer from "./DialogContainer";
 
-export {HBox, VBox, Dialog, PopupContainer, PopupManager, Spacer, TagEditor, PopupMenu, VToggleGroup, HToggleGroup, ListSelect}
+export {HBox, VBox, Dialog, PopupContainer, PopupManager, Spacer, TagEditor, PopupMenu, VToggleGroup, HToggleGroup, ListSelect, DialogManager, DialogContainer}
 
 
 
