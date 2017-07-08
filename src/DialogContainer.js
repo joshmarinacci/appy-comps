@@ -23,7 +23,6 @@ export default class DialogContainer extends Component {
         });
     }
     render() {
-        console.log('rendering with comp',this.state.comp);
         return <div>{this.state.comp}</div>
     }
 }
