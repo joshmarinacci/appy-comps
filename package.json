@@ -1,6 +1,6 @@
 {
   "name": "appy-comps",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "React Components for Application-style webapps",
   "main": "lib/index.js",
   "module": "es/index.js",
