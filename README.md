@@ -122,6 +122,62 @@ contents will cancel the popup.  To manually hide the popup, such as when the us
 item in the popup, call `PopupManager.hide()`;
 
 
+For the common case of a popup menu which lets you choose from a list of items, you can use 
+the `PopupManager` class.  This is an example which lets you choose the color of the button when
+you click on it. 
+
+
+```
+
+//this is the template for a single item in the popup 
+const ColorItemTemplate = (props) => {
+    return <label style={{backgroundColor:props.item}} onClick={props.onSelect}>some color</label>;
+}
+
+class ColorSelectorExample Component {
+    constructor(props) {
+        super(props);
+
+        // all possible colors
+        const colors = ['white','black',"red",'green','blue'];
+
+        // the current color
+        this.state = {
+            color:colors[0]
+        };
+
+        //handler to create and show the popup menu
+        this.chooseColor = (e) => {
+            e.preventDefault();
+            var contents = <PopupMenu
+                list={colors}
+                template={ColorItemTemplate}
+                onChange={this.changed}
+            />;
+            PopupManager.show(contents, this.refs.button);
+        };
+
+        // called when the an item is selected in the menu
+        this.changed = (item) => {
+            console.log('changed to ',item);
+            PopupManager.hide();
+            this.setState({color:item})
+        };
+    }
+
+    render() {
+         return <HBox>
+             <button ref='button' 
+                onClick={this.chooseColor} 
+                style={{backgroundColor:this.state.color}}
+                >Choose</button>
+        </HBox>
+    }
+}
+```
+
+
+
 # Selection Groups
 
 
