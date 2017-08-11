@@ -28,10 +28,21 @@
     "react": "^15.6.1",
     "react-dom": "^15.6.1"
   },
-  "author": "",
-  "homepage": "",
-  "license": "MIT",
-  "repository": "",
+  "author": {
+    "name": "Josh Marinacci",
+    "email": "joshua@marinacci.org",
+    "url":"https://joshondesign.com"
+  },
+  "homepage": "https://github.com/joshmarinacci/appy-comps",
+  "bugs": {
+    "url":"https://github.com/joshmarinacci/appy-comps/issues",
+    "email":"joshua@marinacci.org"
+  },
+  "license": "BSD",
+  "repository": {
+    "type":"git",
+    "url":"https://github.com/joshmarinacci/appy-comps.git"
+  },
   "keywords": [
     "react-component"
   ]
