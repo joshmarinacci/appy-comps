@@ -1,6 +1,6 @@
 {
   "name": "appy-comps",
-  "version": "0.1.12",
+  "version": "0.1.13",
   "description": "React Components for Application-style webapps",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -31,17 +31,17 @@
   "author": {
     "name": "Josh Marinacci",
     "email": "joshua@marinacci.org",
-    "url":"https://joshondesign.com"
+    "url": "https://joshondesign.com"
   },
   "homepage": "https://github.com/joshmarinacci/appy-comps",
   "bugs": {
-    "url":"https://github.com/joshmarinacci/appy-comps/issues",
-    "email":"joshua@marinacci.org"
+    "url": "https://github.com/joshmarinacci/appy-comps/issues",
+    "email": "joshua@marinacci.org"
   },
   "license": "BSD",
   "repository": {
-    "type":"git",
-    "url":"https://github.com/joshmarinacci/appy-comps.git"
+    "type": "git",
+    "url": "https://github.com/joshmarinacci/appy-comps.git"
   },
   "keywords": [
     "react-component"
