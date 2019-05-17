@@ -54,6 +54,7 @@ export default class extends Component {
             bottom:0,
             left:0,
             right:0,
+            zIndex:100,
             display:this.state.showing?'block':'none'
         }}><div
             onClick={this.clickScrim.bind(this)}
@@ -72,7 +73,7 @@ export default class extends Component {
                     position: 'absolute',
                     left: x+'px',
                     top: y+'px',
-                    border:'1px solid black',
+                    border:'0px solid black',
                     backgroundColor:'white',
                     display:'inline-block'
                     }}
