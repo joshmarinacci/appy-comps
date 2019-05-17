@@ -25,7 +25,9 @@ export default class Dialog extends Component {
         };
 
         if(!this.props.visible) return <div/>;
-        return <div style={scrimStyle}>
+        return <div style={scrimStyle} onClick={(e)=>{
+            if(this.props.onScrimClick) this.props.onScrimClick(e)
+        }}>
             <div style={dialogStyle}>{this.props.children}</div>
         </div>
 
