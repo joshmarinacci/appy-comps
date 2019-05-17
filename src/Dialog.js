@@ -1,6 +1,10 @@
 import React, {Component} from 'react'
 
 export default class Dialog extends Component {
+    clickedScrim = (e) => {
+        if(e.target !== this.scrim) return
+        if(this.props.onScrimClick) this.props.onScrimClick(e)
+    }
     render() {
         const scrimStyle = {
             position: 'fixed',
@@ -25,9 +29,7 @@ export default class Dialog extends Component {
         };
 
         if(!this.props.visible) return <div/>;
-        return <div style={scrimStyle} onClick={(e)=>{
-            if(this.props.onScrimClick) this.props.onScrimClick(e)
-        }}>
+        return <div style={scrimStyle} ref={(scrim)=>this.scrim=scrim} onClick={this.clickedScrim}>
             <div style={dialogStyle}>{this.props.children}</div>
         </div>
 
