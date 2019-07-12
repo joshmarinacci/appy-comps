@@ -2,8 +2,8 @@ import React, {Component} from 'react'
 import {render} from 'react-dom'
 
 import Dialog from "../../src/Dialog";
-import PopupContainer from "../../src/PopupContainer";
-import PopupManager from "../../src/PopupManager";
+import {PopupContainer} from "../../src/PopupContainer";
+import {PopupManagerContext, PopupManager} from "../../src/PopupManager";
 import Spacer from "../../src/Spacer";
 import TagEditor from "../../src/TagEditor";
 import {HBox, VBox, PopupMenu, VToggleGroup, ListSelect, HToggleGroup} from "../../src/index";
@@ -90,7 +90,10 @@ class Demo extends Component {
             tags:['foo','bar']
         };
 
-        this.hidePopup = () => PopupManager.hide();
+        this.hidePopup = () => {
+            const PopupManager = this.context
+            PopupManager.hide();
+        }
         this.openDialog = () => this.setState({dialogVisible:true});
         this.closeDialog = () => this.setState({dialogVisible:false});
 
@@ -113,6 +116,7 @@ class Demo extends Component {
         this.state.selectedToggle = this.list[1];
         this.toggleChanged = (item) => {
             this.setState({selectedToggle:item});
+            const PopupManager = this.context
             PopupManager.hide();
         }
 
@@ -120,6 +124,7 @@ class Demo extends Component {
         this.openMenu = () => {
             console.log("opening");
             var content = <PopupMenu list={this.list} selected={this.state.selectedToggle} template={MenuItemTemplate} onChange={this.toggleChanged}/>;
+            const PopupManager = this.context
             PopupManager.show(content,this.refs.menuTrigger);
         }
 
@@ -159,11 +164,13 @@ class Demo extends Component {
         var options = <div>
             <button onClick={this.hidePopup}>option 1</button>
             <button onClick={this.hidePopup}>option 2</button></div>;
+        const PopupManager = this.context
         PopupManager.show(options,this.refs.popupTrigger);
     }
     openColorPicker() {
         var colors = ["red",'green','blue'];
         var grid = <GridListView template={ColorPanel} list={colors}/>
+        const PopupManager = this.context
         PopupManager.show(grid, this.refs.colorTrigger);
     }
     render() {
@@ -218,5 +225,6 @@ class Demo extends Component {
         </div>
     }
 }
+Demo.contextType = PopupManagerContext
 
-render(<Demo/>, document.querySelector('#demo'))
+render(<PopupManagerContext.Provider value={new PopupManager()}><Demo/></PopupManagerContext.Provider>, document.querySelector('#demo'))

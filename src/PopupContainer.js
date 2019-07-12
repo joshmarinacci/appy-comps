@@ -1,7 +1,7 @@
 import React, {Component} from "react";
-import PopupManager from './PopupManager';
+import {PopupManagerContext} from './PopupManager';
 
-export default class extends Component {
+class PopupContainerImpl extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -13,10 +13,11 @@ export default class extends Component {
     }
 
     componentWillMount() {
+        const PopupManager = this.context
         PopupManager.onShow((comp, owner)=>{
             this.setState({comp:comp, showing:true, owner:owner});
             setTimeout(()=>{
-                var rect = this.refs.wrapper.getBoundingClientRect();
+                var rect = this.wrapper.getBoundingClientRect();
                 var extent = rect.top + rect.height;
                 var max = window.innerHeight;
                 if(extent > max) {
@@ -67,7 +68,7 @@ export default class extends Component {
         >scrim</div>
 
             <div
-                ref='wrapper'
+                ref={(e) => this.wrapper = e}
                 id='popup-wrapper'
                 style={{
                     position: 'absolute',
@@ -81,3 +82,5 @@ export default class extends Component {
         </div>
     }
 }
+PopupContainerImpl.contextType = PopupManagerContext
+export const PopupContainer = PopupContainerImpl

@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import PopupManager from "./PopupManager";
+import {PopupManager} from "./PopupManager";
 
 
 const tagEditorStyle = {

@@ -21,12 +21,12 @@
   },
   "dependencies": {},
   "peerDependencies": {
-    "react": "15.x"
+    "react": "^16.8.6"
   },
   "devDependencies": {
     "nwb": "0.17.x",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
   },
   "author": {
     "name": "Josh Marinacci",
