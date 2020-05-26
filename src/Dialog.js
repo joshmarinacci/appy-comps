@@ -22,15 +22,16 @@ export default class Dialog extends Component {
             position: 'absolute',
             left: '50%',
             top: '10em',
+            maxHeight: '80vh',
             transform: 'translate(-50%,0)',
             width: '40em',
             backgroundColor: 'white',
-            boxShadow: '0px 4px 15px 5px rgba(0,0,0,0.23)'
+            boxShadow: '0px 4px 15px 5px rgba(0,0,0,0.23)',
         };
 
         if(!this.props.visible) return <div/>;
         return <div style={scrimStyle} ref={(scrim)=>this.scrim=scrim} onClick={this.clickedScrim}>
-            <div style={dialogStyle}>{this.props.children}</div>
+            <div style={dialogStyle} className={"appy-comps-dialog"}>{this.props.children}</div>
         </div>
 
     }
