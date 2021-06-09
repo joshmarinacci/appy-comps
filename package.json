@@ -19,14 +19,13 @@
     "test:watch": "nwb test-react --server",
     "do-publish": "npm run build && npm version patch && npm publish"
   },
-  "dependencies": {},
   "peerDependencies": {
-    "react": "^16.8.6"
+    "react": ">16.8.6"
   },
   "devDependencies": {
     "nwb": "0.17.x",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react": ">16.8.6",
+    "react-dom": ">16.8.6"
   },
   "author": {
     "name": "Josh Marinacci",
