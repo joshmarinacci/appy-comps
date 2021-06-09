@@ -86,8 +86,20 @@ of your main div.  Put the dialog contents inside of the Dialog. ex:
 # PopupContainer and PopupManager
 
 Popups like dropdown menus and color pickers may be called from anywhere in your document, but 
-they need to always be rendered above all other content, even scrolling content. That's what the 
-PopupContainer container does. Place it at end of your main content, after the Dialogs, like this:
+they need to always be rendered above all other content, even scrolling content. 
+
+First create a PopupManagerContext.Provider which wraps your entire application, like this:
+
+```javascript
+return <PopupManagerContext.Provider value={new PopupManager()}>
+<HBox>
+<BufferEditor width={1280} height={768} initialZoom={6}/>
+</HBox>
+</PopupManagerContext.Provider>
+
+```
+
+Now add a PopupContainer. Place it at end of your main content, after the Dialogs, like this:
 
 ```
 <div>
@@ -102,18 +114,20 @@ PopupContainer container does. Place it at end of your main content, after the D
 
 Note: only create one PopupContainer. It has no arguments.  
 
-To show a popup you must call the PopupContainer.show() method in an event
+To show a popup you must get a reference to the PopupManager context and call the `show()` method in an event
 handler somewhere. Pass in the contents of the popup along with the reference to the
 component which triggered the popup (for placement).
 
 ```
+const pm = useContext(PopupManagerContext.Consumer)
+
 this.clickedShareButton = () => {
     let contents = <div>
         <button>Send to Twitter</button>
         <button>Send to Facebook</button>
     </div>;
         
-    PopupManager.show(contents, this.refs.shareButton);
+    pm.show(contents, this.refs.shareButton);
 }
 ```
 
