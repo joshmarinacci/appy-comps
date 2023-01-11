@@ -23,7 +23,7 @@
     "react": ">16.8.6"
   },
   "devDependencies": {
-    "nwb": "0.17.x",
+    "nwb": "0.25.x",
     "react": ">16.8.6",
     "react-dom": ">16.8.6"
   },
